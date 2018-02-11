@@ -136,6 +136,8 @@ clean:
 	-rm -f a.out core *.s *.o ERRS errs .,* .emacs_[0-9]*
 	-rm -f ${PROGS} xxx.l lex.yy.c detex.c
 	-rm -f *.tar.bz2
+	-rm -f detex.exe
+	-rm -f delatex.exe
 
 print:	${HDR} ${SRC}
 	${LPR} Makefile ${HDR} ${SRC}
