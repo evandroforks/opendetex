@@ -80,7 +80,7 @@ LEX	= flex
 
 # scanner library
 #
-# LEXLIB	= -ll
+#LEXLIB	= -ll
 LEXLIB	= -lfl
 
 LPR	= lpr -p
