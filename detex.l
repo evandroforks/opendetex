@@ -365,7 +365,7 @@ VERBSYMBOL	=|\\leq|\\geq|\\in|>|<|\\subseteq|\subseteq|\\subset|\\supset|\\sim|\
 
 <Normal>"$"		/* math mode */		{BEGIN Math; NOUN;}
 <Math>"$"					BEGIN Normal;
-<Math>"\n"					NEWLINE;
+<Math>"\n"					;
 <Math>"\\$"					;
 <Math>{VERBSYMBOL}			VERBNOUN;
 <Math>.						;
@@ -419,7 +419,7 @@ VERBSYMBOL	=|\\leq|\\geq|\\in|>|<|\\subseteq|\subseteq|\\subset|\\supset|\\sim|\
 
 <Control>\\[a-zA-Z@]+				IGNORE;
 <Control>[a-zA-Z@0-9]*[-'=`][^ \t\n{]*		IGNORE;
-<Control>"\n"+					{BEGIN Normal; /*NEWLINE;*/}
+<Control>"\n"					{BEGIN Normal; /*NEWLINE;*/}
 <Control>[ \t]*[{]+				{++currBracesLevel;BEGIN Normal; IGNORE;}
 <Control>[ \t]*				{BEGIN Normal; IGNORE;}
 <Control>.					{yyless(0);BEGIN Normal;}
@@ -442,7 +442,7 @@ VERBSYMBOL	=|\\leq|\\geq|\\in|>|<|\\subseteq|\subseteq|\\subset|\\supset|\\sim|\
 								putchar(')');
 								footnoteLevel = -100;
 							}
-							SPACE;}
+							}
 <Normal>{W}[']*{W}				{   if (fWord)
 							(void)printf("%s\n", yytext);
 						    else
